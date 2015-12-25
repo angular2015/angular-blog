@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-   angular.module('starter').controller('frontPageCtrl', function($scope, $ionicLoading) {
+   angular.module('beer.front').controller('frontPageCtrl', function($scope, $ionicLoading) {
 
    });
 })();

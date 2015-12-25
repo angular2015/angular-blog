@@ -1,7 +1,8 @@
 (function () {
     'use strict';
-    angular.module('blog.app',[
-        'starter',
-        'blog.front'
+    angular.module('beer.app',[
+        'beer.front',
+        'beer.menu',
+        'beer.home'
     ]);
 })();

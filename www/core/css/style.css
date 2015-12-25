@@ -1,1 +1,149 @@
-/* Empty. Add your own CSS if you like */
+.maindiv {
+    background: #ffffff url("../img/back.jpg") no-repeat top;
+    background-size: cover;
+}
+.headerdiv {
+    margin: 14px 0 0;
+}
+.leftHeader {
+    color: #fff;
+    float: left;
+    font-size: 1.09em;
+    text-align: center;
+    width: 50%;
+}
+
+.linemidle {
+    background-color: #6c6e69;
+    float: left;
+    height: 42px;
+    padding: 0;
+    width: 1px;
+    opacity: 0.65;
+}
+.rightHeader {
+    text-align: center;
+    color: #fff;
+    font-size: 1.09em;
+}
+
+.middleBox {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.66);
+    border-radius: 6px;
+    margin: 55px auto 0;
+    position: relative;
+    width: 87%;
+}
+.boxtext {
+    margin: 0 auto 8px;
+    padding: 15px 0 0;
+    width: 84%;
+}
+#t1 {
+    font-family: Dosis;
+    font-size: 2.2em;
+    font-weight: 200;
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+}
+#logo {
+    width: 200px;
+    height: 60px;
+}
+#t2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0.98em;
+}
+p {
+    margin: 0 !important;
+}
+.loginBox {
+    margin: 25px auto 0;
+    padding: 0 0 15px;
+    width: 70%;
+}
+.bt1 {
+    background: none repeat scroll 0 0 #dd4627;
+    border: medium none;
+    border-radius: 2px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Rupee_Foradian;
+    font-size: 1.1em;
+    /* height: 2.3em; */
+    line-height: 2.3em;
+    vertical-align: middle;
+    width: 100%;
+    margin-bottom: 4px !important;
+}
+.bt2 {
+    background: none repeat scroll 0 0 #3b5998;
+    border: medium none;
+    border-radius: 2px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Rupee_Foradian;
+    font-size: 1.1em;
+    /* height: 2.3em; */
+    line-height: 2.3em;
+    vertical-align: middle;
+    width: 100%;
+}
+.bt3 {
+    background: none repeat scroll 0 0 #cb3f32;
+    border: medium none;
+    border-radius: 2px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Rupee_Foradian;
+    font-size: 1.1em;
+    /* height: 2.3em; */
+    line-height: 2.3em;
+    vertical-align: middle;
+    width: 100%;
+}
+.arrow {
+    opacity: 0.90;
+    text-align: center;
+}
+.logo {
+    text-align: center;
+    /* margin-bottom: 20px; */
+    margin-top: -0.5px;
+}
+.footer {
+    /* bottom: 0; */
+    color: #fff;
+    font-size: 1.0em;
+    font-weight: 600;
+    margin: 0 auto;
+    opacity: 0.61;
+    /* position: absolute; */
+    text-align: center;
+    width: 100%;
+}
+
+/*=========================register=====================================*/
+.reg_main {
+    margin-top: 80px !important;
+    width: 320px;
+    margin: 0 auto;
+    box-shadow: 0 0 2px 1px #B1ABAB;
+}
+.reg_container {
+    padding: 20px 0 20px 0;
+    text-align: center;
+    font-size: 2.2em;
+}
+button.button.mybtn.button-positive {
+    margin-bottom: 15px;
+    width:180px;
+}
+.reg_bt{
+    /*text-align: center;*/
+    margin-left:15px;
+
+}

@@ -2,8 +2,11 @@
     'use strict';
     angular.module('starter')
             .run(coreRun);
-    function coreRun($ionicPlatform) {
+    function coreRun($ionicPlatform,$state) {
+        //alert('hello2')
+        console.log('hello2');
         $ionicPlatform.ready(function () {
+//            $state.go('frontPage');
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)

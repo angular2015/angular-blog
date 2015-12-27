@@ -3,6 +3,7 @@
             [
                 'ionic',
                 'uiGmapgoogle-maps',
-                'beer.app'
+                'beer.app',
+                'starter.service'
             ]);
 })();

@@ -3,6 +3,7 @@
     angular.module('beer.app',[
         'beer.front',
         'beer.menu',
-        'beer.home'
+        'beer.home',
+        'beer.service'
     ]);
 })();

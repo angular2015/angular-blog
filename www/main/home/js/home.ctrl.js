@@ -15,6 +15,8 @@
             });
             $log.log(data);
         });
+        $scope.locationGps = 'position';
+
     }
     ;
 })();

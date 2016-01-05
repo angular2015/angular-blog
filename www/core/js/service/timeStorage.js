@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('starter.service').factory('timeStorage', ['$localStorage', function ($localStorage) {
+    angular.module('starter').factory('timeStorage', ['$localStorage', function ($localStorage) {
             var timeStorage = {};
             timeStorage.cleanUp = function () {
                 var cur_time = new Date().getTime();

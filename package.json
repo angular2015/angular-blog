@@ -24,9 +24,13 @@
     {
       "locator": "https://github.com/mauron85/cordova-plugin-background-geolocation.git",
       "id": "cordova-plugin-mauron85-background-geolocation"
-    }
+    },
+    "facebook_plugin"
   ],
   "cordovaPlatforms": [
-    "android"
+    {
+      "platform": "android",
+      "locator": "browser"
+    }
   ]
 }

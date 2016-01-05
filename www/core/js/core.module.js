@@ -4,6 +4,7 @@
                 'ionic',
                 'uiGmapgoogle-maps',
                 'beer.app',
-                'starter.service'
+                'starter.service',
+                'ngStorage'
             ]);
 })();

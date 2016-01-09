@@ -131,14 +131,17 @@ p {
 /*=========================register=====================================*/
 .reg_main {
     margin-top: 25px !important;
-    width: 320px;
+    width: 225px;
     margin: 0 auto;
     box-shadow: 0 0 2px 1px #B1ABAB;
+    background-color: #DAD8DC;
+    opacity: 0.7;
 }
 .reg_container {
-    padding: 20px 0 20px 0;
+    padding: 20px 0 0px 0;;
     text-align: center;
     font-size: 1.5em;
+    color: #6C43CE;
 }
 button.button.mybtn.button-positive {
     margin-bottom: 15px;
@@ -148,4 +151,14 @@ button.button.mybtn.button-positive {
     /*text-align: center;*/
     margin-left:15px;
 
+}
+.rgbg {
+    background: #ffffff url("../img/login.jpg") no-repeat top;
+    background-size: cover;
+}
+.item{
+    margin:0px;
+}
+.myitem{
+    border:0px;
 }

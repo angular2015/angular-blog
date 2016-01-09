@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('beer.front').controller('frontPageCtrl', function ($scope,$log,googleLogin,$timeout, $ionicLoading) {
+    angular.module('beer.front').controller('frontPageCtrl', function ($scope,$log,timeStorage,$state,googleLogin,$timeout, $ionicLoading) {
         var opt = {
             client_id: '86285624834-atvl4kh7jsn12qb88lpkqbdsjbdqv570.apps.googleusercontent.com',
             redirect_uri: 'http://localhost/demo1/demo',
@@ -15,6 +15,8 @@
             loginGoogle.then(function (res) {
                 console.log(res);
                 if (res.google_id != '') {
+                     timeStorage.set('login',res,100);
+                        $state.go('menu.home');
                 }
             });
         };
@@ -51,6 +53,8 @@
                 $log.info(data);
                 $scope.$apply(function () {
                     $scope.fb_data = data;
+                     timeStorage.set('login',data,100);
+                        $state.go('menu.home');
                 });
             });
         };

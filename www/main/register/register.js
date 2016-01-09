@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('starter').controller('registerCtrl', function($scope, ajaxRequest, $ionicLoading) {
+    angular.module('starter').controller('registerCtrl', function($scope,$state,timeStorage, ajaxRequest, $ionicLoading) {
         $scope.user = {
             email: '',
             name: '',
@@ -23,7 +23,6 @@
             else if ($scope.user.password == $scope.user.repassword) {
                 console.log('ok')
                 var data = {
-                    
                     'm': $scope.user.email,
                     'm1': $scope.user.password,
                     'm2': $scope.user.name
@@ -32,10 +31,17 @@
 
                 var promise = ajaxRequest.send(api, data);
                 promise.then(function(data2) {
-                    
+                    console.log(data2);
+                    if (data2.msg == "success") {
+                        timeStorage.set('login',data2,100);
+                        $state.go('menu.home');
+                    }
+                    else{
+                        console.log('please enter correct');
+                    }
+
                 });
 
-                console.log(data);
             }
 
             else {

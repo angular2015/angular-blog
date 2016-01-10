@@ -28,9 +28,6 @@
     "facebook_plugin"
   ],
   "cordovaPlatforms": [
-    {
-      "platform": "android",
-      "locator": "browser"
-    }
+    "android"
   ]
 }

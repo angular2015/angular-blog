@@ -10,7 +10,8 @@
                     url: function (api) {
 //                        http://localhost/etech/www/
 //                        http://excellencetechnologies.co.in/siddharth/
-                        return 'http://beerlocator.netai.net/beerlocator/' + api;
+//http://beerlocator.netai.net/beerlocator/
+                        return '' + api;
                     },
                     send: function (api, data, method) {
                         var self = this;

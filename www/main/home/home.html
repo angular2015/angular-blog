@@ -1,15 +1,15 @@
 <ion-view>
     <ion-content has-bouncing="false">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+            </ui-gmap-marker>
+            <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'ran'">
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
 
-    {{location}}
-    
-    <br>
-     <br>
-      <br> <br> <br>
-      
-      
-    {{locationGps}}
+        {{location}}
+        
+         <img src="main/image/icon.png" alt=""/>
     </ion-content>
 
 

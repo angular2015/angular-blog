@@ -5,6 +5,7 @@
         'beer.menu',
         'beer.home',
         'beer.service',
-        'beer.login'
+        'beer.login',
+        'beer.list'
     ]);
 })();

@@ -2,11 +2,11 @@
     'use strict';
     angular.module('beer.service', [])
             .factory('geoHelper', geoHelper);
-    function geoHelper(ajaxRequest, $q, google_key, $http) {
+    function geoHelper(ajaxRequest, $localStorage, $rootScope, $q, google_key, $http) {
         var geo = {};
         geo.defer = $q.defer();
-        geo.defer2=$q.defer();
-        geo.defer3=$q.defer();
+        geo.defer2 = $q.defer();
+        geo.defer3 = $q.defer();
         geo.timeout = 30000;
         // geo.address success
         geo.success = function (position) {
@@ -16,9 +16,9 @@
                 geo.defer.resolve(data);
             });
         };
-         // geo.address error
+        // geo.address error
         geo.error = function (error) {
-            
+
             //back up forgetting userlocation
             var promise = ajaxRequest.send('https://www.googleapis.com/geolocation/v1/geolocate?key=' + google_key);
             promise.then(function (data) {
@@ -45,19 +45,25 @@
                     .success(function (data) {
                         geo.defer2.resolve(data);
                     });
-                    return geo.defer2.promise;
+            return geo.defer2.promise;
 
         };
-        geo.path=function(data){
-              $http({
-                url:'https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&key='+ google_key,
-                method: 'GET',
+        geo.path = function (data) {
+            var origin = $localStorage.userLocation;
+            var def=$q.defer();
+            $http({
+                url: 'https://maps.googleapis.com/maps/api/directions/json?origin=' + origin.lat + ',' + origin.lng + '&destination=' + data.lat + ',' + data.lng + '&key=' + google_key,
+                method: 'GET'
             })
                     .success(function (data) {
-                        console.log(data)
-                        geo.defer3.resolve(data);
+                        def.resolve(data);
                     });
-                    return geo.defer3.promise;
+            return def.promise;
+        };
+        geo.decodePoly = function (data) {
+            console.log(data);
+            var poly = $rootScope.maps.geometry.encoding.decodePath(data.points);
+            return poly;
         };
         return geo;
     }

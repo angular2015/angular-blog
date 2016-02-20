@@ -23,7 +23,7 @@
         <script src="core/lib/angular-google-maps/dist/angular-google-maps.min.js" type="text/javascript"></script>
         <script src="core/lib/angular-simple-logger/dist/angular-simple-logger.min.js" type="text/javascript"></script>
         <!--<script src="core/lib/map/google-map-api.js" type="text/javascript"></script>-->
-        <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!--        <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>-->
         <!-- lib js ends -->
 
         <!-- cordova script (this will be a 404 during development) -->
@@ -40,12 +40,14 @@
         <script src="core/js/service/timeStorage.js" type="text/javascript"></script>
         <script src="core/js/service/googleLogin.js" type="text/javascript"></script>
         <!-- core service ends-->
-        
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfl-3Spg2Ph7BAlW6lT9ZDWPSBfcSN_Hs&libraries=geometry">
+        </script>
         <!--beer services js -->
         <script src="main/service/geolocation.js" type="text/javascript"></script>
-        
+
         <!-- beer services js ends-->
-        
+
         <!--menu js starts-->
         <script src="main/menu/menu.module.js" type="text/javascript"></script>
         <script src="main/menu/menu.config.js" type="text/javascript"></script>
@@ -66,11 +68,11 @@
         <script src="main/register/register.js" type="text/javascript"></script>
         <!-- register js ends-->
         <!--login-->
-         <script src="main/login/login.module.js" type="text/javascript"></script>
+        <script src="main/login/login.module.js" type="text/javascript"></script>
         <script src="main/login/login.route.js" type="text/javascript"></script>
         <script src="main/login/login.js" type="text/javascript"></script>
-        
-        
+
+
         <script src="main/home/js/home.module.js" type="text/javascript"></script>
         <script src="main/home/js/home.ctrl.js" type="text/javascript"></script>
         <script src="main/home/js/home.config.js" type="text/javascript"></script>

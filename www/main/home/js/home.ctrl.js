@@ -1,18 +1,12 @@
 (function () {
     'use strict';
     angular.module('beer.home').controller('HomeCtrl', homeCtrl);
-    function homeCtrl($scope, uiGmapGoogleMapApi, geoHelper, $log, $ionicPopup)
+    function homeCtrl($scope, uiGmapGoogleMapApi, $localStorage, $rootScope, geoHelper, $log, $ionicPopup)
     {
-
-
-
-        // onSuccess Callback
-// This method accepts a Position object, which contains the
-// current GPS coordinates
-//
-
         $scope.map = {center: {latitude: 45, longitude: -73}, zoom: 8};
         uiGmapGoogleMapApi.then(function (maps) {
+            $rootScope.maps = maps;
+
         });
         //for setting user location of the user on the map
         $scope.marker = {
@@ -25,12 +19,8 @@
                 scrollwheel: true},
             events: {
                 dragend: function (marker, eventName, args) {
-                    $log.log('marker dragend');
                     var lat = marker.getPosition().lat();
                     var lon = marker.getPosition().lng();
-                    $log.log(lat);
-                    $log.log(lon);
-
                     $scope.marker.options = {
                         draggable: true,
                         labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
@@ -44,8 +34,8 @@
         $scope.randomMarkers = []//for showing beers shop on the map
         var promise = geoHelper.address();//current lat long of user
         promise.then(function (data) {
-            console.log(data);
             var loc = data.results[0].geometry.location;
+            $localStorage.userLocation = {lat: loc.lat, lng: loc.lng};
             $scope.map = {center: {latitude: loc.lat, longitude: loc.lng}, zoom: 15};
             $scope.marker.coords.latitude = loc.lat;//setting the user location on the map
             $scope.marker.coords.longitude = loc.lng;//setting the user location on the map
@@ -75,8 +65,43 @@
             console.log('gps not avialable')
         });
         $scope.onClick = function (marker, eventName, model) {
-            console.log("Clicked!");
-              var promise = geoHelper.path();
+           
+            var data = {lat: marker.model.latitude, lng: marker.model.longitude};
+            console.log(data);
+            var promise = geoHelper.path(data);
+            promise.then(function(data) {
+                var poly = data.routes[0].overview_polyline;
+                var dirObj = geoHelper.decodePoly(poly);
+                var path=[];
+                for(var i=0;i<dirObj.length;i++)
+                {
+                   var location={latitude:dirObj[i].lat(),longitude:dirObj[i].lng()};
+                   path.push(location);
+                };
+                 console.log(path);
+                $scope.polylines = [
+                    {
+                        id: 1,
+                        path: path,
+                        stroke: {
+                            color: '#6060FB',
+                            weight: 3
+                        },
+                        editable: true,
+                        draggable: true,
+                        geodesic: true,
+                        visible: true,
+                        icons: [{
+                                icon: {
+                                    path: google.maps.SymbolPath.FORWARD_OPEN_ARROW
+                                },
+                                offset: '25px',
+                                repeat: '50px'
+                            }]
+                    }];
+                
+            });
+   
             model.show = !model.show;
         };
         $scope.setPath = function (data) {
